@@ -31,6 +31,9 @@ HomeStack.navigationOptions = {
       }
     />
   ),
+  navigationOptions: ({ navigation }) => ({
+    headerLeft: <Button onPress={() => navigation.goBack()} title="back" />,
+  }),
 };
 
 HomeStack.path = '';
@@ -43,10 +46,11 @@ const LinksStack = createStackNavigator(
 );
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'الوسائط',
+  tabBarLabel: 'المواد الإثرائية',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'} />
   ),
+  
 };
 
 LinksStack.path = '';
@@ -58,19 +62,19 @@ const SettingsStack = createStackNavigator(
   config
 );
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'الإختبارات',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
-  ),
-};
+// SettingsStack.navigationOptions = {
+//   tabBarLabel: 'الإختبارات',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon focused={focused} name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'} />
+//   ),
+// };
 
 SettingsStack.path = '';
 
 const tabNavigator = createBottomTabNavigator({
   HomeStack,
   LinksStack,
-  SettingsStack,
+  // SettingsStack,
 });
 
 tabNavigator.path = '';
